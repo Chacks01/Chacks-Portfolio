@@ -85,7 +85,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     --second-bg-color:grey;
     --big-font:2.5rem;
     --normal-font: 2rem;
-    --neon-boc-shadow: 0 0.5rem orange
+    --neon-box-shadow: 0 0.5rem red
     --h2-font:3rem
     --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
     0 0 20px rgba(18,247,255,0.3),
@@ -97,7 +97,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     0 0 100px rgba(18,247,255,0.3),
     0 0 150px rgba(18,247,255,0.3), ;
   }
-  body {
+  * {
     font-family: poppin;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -128,7 +128,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     padding: 2 20;
   }
   .header .navlist a {
-    color: black;
+    color: var(--text-color);
     font-weight: 500;
     padding: 20px 50px;
     text-decoration: none;
@@ -149,6 +149,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     display: none;
   }
   .home {
+    margin-top: -100px;
     min-height: 100vh;
     height: 100%;
     width: 100%;
@@ -159,6 +160,26 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .home .home-content {
     max-width: 600px;
+  }
+  .home .home-content p {
+    color: white;
+    line-height: 1.6;
+  }
+  .home .home-content .infor-box {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 1rem 0 2rem;
+  }
+  .home .home-content .infor-box h5 {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  .home .home-content .infor-box span {
+    font-size: 0.9rem;
+    color: orange;
   }
   .home .home-content h1 {
     font-size: var(--big-font);
@@ -176,7 +197,80 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   .home .home-content .change-text h3 .word {
     position: absolute;
     display: flex;
-    opacity: 0;
+  }
+  .home .home-content .change-text h3 .word .letter {
+    transform-origin: center center 25px;
+  }
+  .home .home-content .change-text h3 .word .letter .out {
+    transform: rotate(90deg);
+    transition: 0.32s cubic-bezier(0.6, 0, 0, 7, 0.2);
+  }
+  .home .home-content .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+    height: 45px;
+  }
+  .home .home-content .btn-box .btn {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background-color: var(--hover-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.6s;
+    box-shadow: var(red);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .home .home-content .btn-box a:hover {
+    color: var(--hover-color);
+  }
+  .home .home-content .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: 0.4s;
+  }
+  .home .home-content .btn:hover::before {
+    width: 100%;
+  }
+  .home .home-content .social-icons {
+    margin-top: 8rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .home .home-image {
+    position: relative;
+  }
+  .home .home-image .img-box {
+    text-align: center;
+  }
+  .home .home-image .img-box img {
+    max-width: 450px;
+    height: 100%;
+    width: 100%;
+  }
+  .home .home-image .liquid-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 10%;
+  }
+  .home .home-image .liquid-shape:nth-child(2) {
+    filter: blur(60px);
   }
 }
 /*
