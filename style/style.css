@@ -17,8 +17,6 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
@@ -31,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
+  background-color: black;
 }
 
 ol, ul {
@@ -70,7 +69,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 /* Large devices (desktops, 992px and up) */
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  body {
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -82,11 +81,11 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     --text-color:white;
     --hover-color:orange;
     --bg-color:black;
-    --second-bg-color:grey;
+    --second-bg-color:rgb(62, 59, 59);
     --big-font:2.5rem;
     --normal-font: 2rem;
-    --neon-box-shadow: 0 0.5rem red
-    --h2-font:3rem
+    --neon-box-shadow: 0 0 .9rem orange;
+    --h2-font:3rem;
     --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
     0 0 20px rgba(18,247,255,0.3),
     0 0 30px rgba(18,247,255,0.3),
@@ -99,14 +98,78 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   * {
     font-family: poppin;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  }
+  body {
+    background-color: var(--bg-color) !important;
   }
   span {
     color: var(--hover-color);
   }
   section {
     padding: 100px 10%;
+  }
+  h1 {
+    font-size: var(--big-font);
+    font-weight: 700;
+  }
+  .main-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(white);
+  }
+  .main-text span {
+    color: orange;
+    font-size: 0.8rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .main-text h2 {
+    font-weight: 700;
+    font-size: var(--normal-font);
+  }
+  .btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    height: 45px;
+  }
+  .btn-box .btn {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background-color: var(--hover-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.6s;
+    box-shadow: var(red);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: var(--neon-box-shadow);
+  }
+  .btn-box a:hover {
+    color: var(--hover-color);
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: 0.4s;
+  }
+  .btn:hover::before {
+    width: 100%;
   }
   .header {
     display: flex;
@@ -162,7 +225,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     max-width: 600px;
   }
   .home .home-content p {
-    color: white;
+    color: var(--text-color);
     line-height: 1.6;
   }
   .home .home-content .infor-box {
@@ -259,18 +322,329 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .home .home-image .img-box img {
     max-width: 450px;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
+    top: 40px;
   }
   .home .home-image .liquid-shape {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 10;
-    top: 10%;
+    z-index: -1;
+    top: 8%;
   }
   .home .home-image .liquid-shape:nth-child(2) {
     filter: blur(60px);
+  }
+  .about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10em;
+    background-color: var(--bg-color);
+  }
+  .about .img-about {
+    text-align: center;
+    position: relative;
+  }
+  .about .img-about span {
+    color: var(--hover-color);
+    font-size: 1.5rem;
+  }
+  .about .img-about p {
+    color: white;
+    font-size: 10px;
+  }
+  .about .img-about img {
+    max-width: 400px;
+    height: auto;
+  }
+  .about .img-about .infor-about1,
+  .about .img-about .infor-about2,
+  .about .img-about .infor-about3 {
+    background-color: var(--bg-color);
+    font-size: 0.5rem;
+    position: absolute;
+    padding: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 69% 31% 65% 34%/21% 30% 70% 79%;
+    display: block;
+    box-shadow: var(--neon-box-shadow);
+    border: 1px solid var(--hover-color);
+    outline: 2px solid var(--bg-color);
+    z-index: 100;
+    animation: morph 6s linear infinite;
+  }
+  .about .img-about .infor-about1 {
+    top: 40%;
+    left: 20%;
+  }
+  .about .img-about .infor-about2 {
+    top: 70%;
+    left: 90%;
+  }
+  .about .img-about .infor-about3 {
+    left: 50%;
+  }
+  @keyframes morph {
+    0%, 100% {
+      border-radius: 40% 60% 70% 30%/40% 40% 60% 30%;
+    }
+    30% {
+      border-radius: 70% 30% 50% 50%/30% 30% 70% 7 0%;
+    }
+    60% {
+      border-radius: 100% 60% 60% 100%/100% 100% 60% 60%;
+    }
+    80% {
+      border-radius: 69% 31% 66% 34%/21% 30% 70% 79%;
+    }
+  }
+  .about-content span {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .about-content h2 {
+    color: var(--hover-color);
+    font-weight: 700;
+    font-size: var(--normal-font);
+  }
+  .about-content h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  .about-content p {
+    font-weight: 300;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+  .services {
+    background-color: var(--bg-color);
+  }
+  .services .main-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--hover-color);
+  }
+  .services .main-text span {
+    color: orange;
+    font-size: 0.8rem;
+    font-weight: 200;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .services .main-text h2 {
+    font-weight: 700;
+    font-size: var(--normal-font);
+  }
+  .services .section-services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-gap: 2rem;
+  }
+  .services .section-services .service-box {
+    flex: 1 1 18rem;
+    padding: 2rem 1rem 2rem;
+    text-align: center;
+    background-color: var(--second-bg-color);
+    transition: transform 0.4s;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .services .section-services .service-box .service-icon {
+    border: 2px solid var(--hover-color);
+    padding: 2rem;
+    background-color: var(--bg-color);
+    color: var(--hover-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    box-shadow: var(--neon-box-shadow);
+    outline: 3px solid var(--bg-color);
+  }
+  .services .section-services .service-box h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  .services .section-services .service-box p {
+    margin: 0.5rem 0 1.5rem 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: white;
+    line-height: 1.6;
+  }
+  .services .section-services .service-box .service-btn {
+    width: auto;
+    justify-content: center;
+  }
+  .services .service-box:hover {
+    transform: translateY(-0.7rem);
+    background-color: rgb(97, 95, 95);
+  }
+  .skills {
+    background-color: var(--bg-color);
+    color: white;
+  }
+  .skills .skill-main {
+    width: 100%;
+    display: flex;
+    gap: 20rem;
+  }
+  .skills .skill-main .skill-left {
+    width: 30rem;
+  }
+  .skills .skill-main .skill-bar {
+    margin-bottom: 2.3rem;
+    gap: 50px;
+  }
+  .skills .skill-main .skill-bar .infor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .skills .skill-main .skill-bar .bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--bg-color);
+    border-radius: 25px;
+    margin-top: 10px;
+    position: relative;
+  }
+  .skills .skill-main .skill-bar .bar .html {
+    width: 60%;
+    animation: html 2s;
+  }
+  .skills .skill-main .skill-bar .bar .figma {
+    width: 70%;
+    animation: figma 3s;
+  }
+  .skills .skill-main .skill-bar .bar .javascript {
+    width: 50%;
+    animation: javascript 4s;
+  }
+  .skills .skill-main .skill-bar .bar .sass {
+    width: 80%;
+    animation: sass 5s;
+  }
+  @keyframes html {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 60%;
+    }
+  }
+  @keyframes sass {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+  @keyframes figma {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 70%;
+    }
+  }
+  @keyframes javascript {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+  .skills .skill-main .skill-bar .bar span {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background-color: var(--hover-color);
+    border-radius: 25px;
+    box-shadow: var(--neon-box-shadow);
+  }
+  .skills .skill-main h3 {
+    margin-bottom: 2.3rem;
+    font-size: var(--normal-font);
+    text-align: center;
+  }
+  .skill-right {
+    width: 30rem;
+  }
+  .skill-right .professional {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .skill-right .professional .box {
+    position: relative;
+    margin: 10px 0;
+    flex: 1 1 15rem;
+  }
+  .skill-right .professional .box .circle {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+  }
+  .skill-right .professional .box .circle .points {
+    width: 2px;
+    height: 10px;
+    background-color: var(--bg-color);
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i) * 120deg)) translateY(-45px);
+    animation: glow 0.04s linear forwards;
+    animation-delay: calc(var(--i) * 0.05s);
+  }
+  @keyframes glow {
+    0% {
+      background-color: var(--bg-color);
+      box-shadow: none;
+    }
+    100% {
+      background-color: var(--hover-color);
+      box-shadow: var(--neon-box-shadow);
+    }
+  }
+  .skill-right .professional .box .text {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+  }
+  .skill-right .professional .box .text big {
+    font: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    transform: translate(-50% -50%);
+  }
+  .skill-right .professional .box .text .small {
+    display: block;
+    font-weight: 600;
   }
 }
 /*
