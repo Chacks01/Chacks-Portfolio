@@ -122,6 +122,20 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 	}
 
+	::-webkit-scrollbar{
+		height: 0;
+		width: .5rem;
+	}
+
+	::-webkit-scrollbar-track{
+		background: var(--second-bg-color);
+	}
+
+	::-webkit-scrollbar-thumb{
+		background: var(--hover-color);
+		border-radius: 5rem;
+	}
+
     *{
 		font-family: poppin;
 		// background-color: var(--bg-color);
@@ -162,6 +176,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 		h2{
 			font-weight: 700;
 			font-size: var(--normal-font);
+			color: var(--text-color);
 
 		}
 	}
@@ -453,6 +468,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 		justify-content: center;
 		grid-gap: 10em;
 		background-color: var(--bg-color);
+	
 
 		.img-about{
 			text-align: center;
@@ -840,7 +856,173 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 			}
 		}
 	}
-	
+
+	// portfolio section css----------------------------------------
+	.portfolio{
+		h2{
+			color: var(--text-color);
+		}
+		.container{
+			.fillter-buttons{
+				text-align: center;
+				margin: 2rem;
+				.btn{
+					color: var(--text-color);
+					cursor: pointer;
+				}
+
+				.btn:hover{
+					color: var(--hover-color);
+				}
+			}
+		}
+		
+		.portfolio-gallery{
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(370px ,1fr));
+			gap: 2rem;
+
+			.port-box{
+				position: relative;
+				border-radius: 15px;
+				overflow: hidden;
+				background-color: grey;
+				display: flex;
+				grid-template-rows: 1fr auto;
+				align-items: center;
+				border: 2px solid var(--hover-color);
+				box-shadow: var(--neon-box-shadow);
+
+				.port-image{
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 100%;
+					width: 100%;
+
+				
+						img{
+							height: 100%;
+							width: 100%;
+							opacity: .5s;
+							transition: .5s;
+						
+					}
+				}
+				
+				
+				.port-content{
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					left: 0;
+					bottom: 0;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					padding: 0 2rem;
+					transition: .5s;
+					background: linear-gradient(rgba(0,0,0,.2),orange);
+
+					h3{
+						color: var(--text-color);
+						font-weight: 600;
+					}
+					
+					p{
+						color: var(--text-color);
+					}
+
+					a{
+						background-color: var(--text-color);
+						border-radius: 50%;
+						display: inline-flex;
+						justify-content: center;
+						align-items: center;
+						width: 50px;
+						height: 50px;
+						border: 1px solid var(--hover-color);
+						outline: 2px solid var(--text-color);
+						color: var(--hover-color);
+					}
+
+					
+				}
+
+				
+			}
+			.port-box:hover .port-content{
+				opacity: 1;
+			}
+			.port-box:hover .port-image{
+				img{
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	// contact section css------------------------------------------
+	.contact{
+		background-color: var(--second-bg-color);
+		width: 100%;
+		form{
+			text-align: center;
+			margin: 1rem auto;
+			max-width: 50rem;
+			margin-bottom: 3rem;
+
+			input,
+			textarea{
+				width: 100%;
+				color: var(--text-color);
+				background-color: var(--bg-color);
+				margin-bottom:.8rem ;
+				border: none;
+				border-radius: 5px;
+				padding: .7rem;
+			}
+
+			textarea{
+				resize: none;
+			}
+
+			.formBtn{
+				display: flex;
+				justify-content: center;
+				width: 100%;
+
+
+			}
+
+		}
+	}
+
+	// footer section css------------------------------------------
+	footer{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.5rem 10%;
+
+		p{
+			color: var(--text-color);
+		}
+		a{
+			color: var(--text-color);
+			display: inline-flex;
+			justify-content: center;
+			background-color: var(--hover-color);
+			padding: .6rem;
+			border-radius: 5px;
+		}
+	}
+
+
 }
 
 

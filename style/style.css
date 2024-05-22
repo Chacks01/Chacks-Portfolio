@@ -42,7 +42,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -72,7 +72,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     list-style: none;
     scroll-behavior: smooth;
     text-decoration: none;
@@ -86,15 +87,28 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     --normal-font: 2rem;
     --neon-box-shadow: 0 0 .9rem orange;
     --h2-font:3rem;
-    --font-neon-text-shadow:0 0 10px rgba(18,247,255,0.3),
-    0 0 20px rgba(18,247,255,0.3),
-    0 0 30px rgba(18,247,255,0.3),
-    0 0 40px rgba(18,247,255,0.3),
-    0 0 70px rgba(18,247,255,0.3),
-    0 0 80px rgba(18,247,255,0.3),
-    0 0 90px rgba(18,247,255,0.3),
-    0 0 100px rgba(18,247,255,0.3),
-    0 0 150px rgba(18,247,255,0.3), ;
+    --font-neon-text-shadow:0  0 10px rgba(18,247,255,0.3),
+		0  0 20px rgba(18,247,255,0.3),
+		0  0 30px rgba(18,247,255,0.3),
+		0  0 40px rgba(18,247,255,0.3),
+		0  0 70px rgba(18,247,255,0.3),
+		0  0 80px rgba(18,247,255,0.3),
+		0  0 90px rgba(18,247,255,0.3),
+		0  0 100px rgba(18,247,255,0.3),
+		0  0 150px rgba(18,247,255,0.3),
+
+	;
+  }
+  ::-webkit-scrollbar {
+    height: 0;
+    width: .5rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--second-bg-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--hover-color);
+    border-radius: 5rem;
   }
   * {
     font-family: poppin;
@@ -120,7 +134,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .main-text span {
     color: orange;
-    font-size: 0.8rem;
+    font-size: .8rem;
     font-weight: 200;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -128,18 +142,29 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   .main-text h2 {
     font-weight: 700;
     font-size: var(--normal-font);
+    color: var(--text-color);
   }
   .btn-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 120px;
     height: 45px;
   }
   .btn-box .btn {
     text-decoration: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 150px;
     height: 100%;
     background-color: var(--hover-color);
@@ -147,12 +172,15 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-size: 1rem;
     letter-spacing: 1px;
     font-weight: 600;
-    transition: 0.6s;
-    box-shadow: var(red);
+    -webkit-transition: .6s;
+    transition: .6s;
+    -webkit-box-shadow: var(red);
+            box-shadow: var(red);
     position: relative;
     overflow: hidden;
     z-index: 1;
-    box-shadow: var(--neon-box-shadow);
+    -webkit-box-shadow: var(--neon-box-shadow);
+            box-shadow: var(--neon-box-shadow);
   }
   .btn-box a:hover {
     color: var(--hover-color);
@@ -166,15 +194,22 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     width: 0;
     height: 100%;
     z-index: -1;
-    transition: 0.4s;
+    -webkit-transition: .4s;
+    transition: .4s;
   }
   .btn:hover::before {
     width: 100%;
   }
   .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: centre;
-    justify-content: space-between;
+    -webkit-box-align: centre;
+        -ms-flex-align: centre;
+            align-items: centre;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 100%;
     padding: 20px 10%;
   }
@@ -187,6 +222,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     color: var(--hover-color);
   }
   .header .navlist {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 2 20;
   }
@@ -216,9 +253,13 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     min-height: 100vh;
     height: 100%;
     width: 100%;
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     grid-gap: 4rem;
   }
   .home .home-content {
@@ -229,9 +270,15 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     line-height: 1.6;
   }
   .home .home-content .infor-box {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 300px;
     margin: 1rem 0 2rem;
   }
@@ -241,7 +288,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-size: 1rem;
   }
   .home .home-content .infor-box span {
-    font-size: 0.9rem;
+    font-size: .9rem;
     color: orange;
   }
   .home .home-content h1 {
@@ -253,32 +300,50 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-weight: 600;
   }
   .home .home-content .change-text h3 {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     margin: 0;
     vertical-align: top;
   }
   .home .home-content .change-text h3 .word {
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    opacity: 0;
   }
   .home .home-content .change-text h3 .word .letter {
-    transform-origin: center center 25px;
+    -webkit-transform-origin: center center 25px;
+            transform-origin: center center 25px;
   }
   .home .home-content .change-text h3 .word .letter .out {
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-transition: 0.32s cubic-bezier(0.6, 0, 0, 7, 0.2);
     transition: 0.32s cubic-bezier(0.6, 0, 0, 7, 0.2);
   }
   .home .home-content .btn-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     width: 320px;
     height: 45px;
   }
   .home .home-content .btn-box .btn {
     text-decoration: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 150px;
     height: 100%;
     background-color: var(--hover-color);
@@ -286,8 +351,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-size: 1rem;
     letter-spacing: 1px;
     font-weight: 600;
-    transition: 0.6s;
-    box-shadow: var(red);
+    -webkit-transition: .6s;
+    transition: .6s;
+    -webkit-box-shadow: var(red);
+            box-shadow: var(red);
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -304,15 +371,20 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     width: 0;
     height: 100%;
     z-index: -1;
-    transition: 0.4s;
+    -webkit-transition: .4s;
+    transition: .4s;
   }
   .home .home-content .btn:hover::before {
     width: 100%;
   }
   .home .home-content .social-icons {
     margin-top: 8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .home .home-image {
     position: relative;
@@ -334,12 +406,19 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     top: 8%;
   }
   .home .home-image .liquid-shape:nth-child(2) {
-    filter: blur(60px);
+    -webkit-filter: blur(60px);
+            filter: blur(60px);
   }
   .about {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     grid-gap: 10em;
     background-color: var(--bg-color);
   }
@@ -363,18 +442,20 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   .about .img-about .infor-about2,
   .about .img-about .infor-about3 {
     background-color: var(--bg-color);
-    font-size: 0.5rem;
+    font-size: .5rem;
     position: absolute;
     padding: 10px;
     width: 90px;
     height: 90px;
-    border-radius: 69% 31% 65% 34%/21% 30% 70% 79%;
+    border-radius: 69% 31% 65% 34% / 21% 30% 70% 79%;
     display: block;
-    box-shadow: var(--neon-box-shadow);
+    -webkit-box-shadow: var(--neon-box-shadow);
+            box-shadow: var(--neon-box-shadow);
     border: 1px solid var(--hover-color);
     outline: 2px solid var(--bg-color);
     z-index: 100;
-    animation: morph 6s linear infinite;
+    -webkit-animation: morph 6s linear infinite;
+            animation: morph 6s linear infinite;
   }
   .about .img-about .infor-about1 {
     top: 40%;
@@ -387,23 +468,39 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   .about .img-about .infor-about3 {
     left: 50%;
   }
-  @keyframes morph {
-    0%, 100% {
-      border-radius: 40% 60% 70% 30%/40% 40% 60% 30%;
+  @-webkit-keyframes morph {
+    0%,
+    100% {
+      border-radius: 40% 60% 70% 30% / 40% 40% 60% 30%;
     }
     30% {
-      border-radius: 70% 30% 50% 50%/30% 30% 70% 7 0%;
+      border-radius: 70% 30% 50% 50% / 30% 30% 70% 7 0%;
     }
     60% {
-      border-radius: 100% 60% 60% 100%/100% 100% 60% 60%;
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
     }
     80% {
-      border-radius: 69% 31% 66% 34%/21% 30% 70% 79%;
+      border-radius: 69% 31% 66% 34% / 21% 30% 70% 79%;
+    }
+  }
+  @keyframes morph {
+    0%,
+    100% {
+      border-radius: 40% 60% 70% 30% / 40% 40% 60% 30%;
+    }
+    30% {
+      border-radius: 70% 30% 50% 50% / 30% 30% 70% 7 0%;
+    }
+    60% {
+      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    }
+    80% {
+      border-radius: 69% 31% 66% 34% / 21% 30% 70% 79%;
     }
   }
   .about-content span {
     color: white;
-    font-size: 0.8rem;
+    font-size: .8rem;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -416,7 +513,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   .about-content h3 {
     font-weight: 600;
     font-size: 1.5rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: .2rem;
   }
   .about-content p {
     font-weight: 300;
@@ -434,7 +531,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .services .main-text span {
     color: orange;
-    font-size: 0.8rem;
+    font-size: .8rem;
     font-weight: 200;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -444,38 +541,66 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-size: var(--normal-font);
   }
   .services .section-services {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     grid-gap: 2rem;
   }
   .services .section-services .service-box {
-    flex: 1 1 18rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 18rem;
+            flex: 1 1 18rem;
     padding: 2rem 1rem 2rem;
     text-align: center;
     background-color: var(--second-bg-color);
-    transition: transform 0.4s;
+    -webkit-transition: -webkit-transform .4s;
+    transition: -webkit-transform .4s;
+    transition: transform .4s;
+    transition: transform .4s, -webkit-transform .4s;
     border-radius: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .services .section-services .service-box .service-icon {
     border: 2px solid var(--hover-color);
     padding: 2rem;
     background-color: var(--bg-color);
     color: var(--hover-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-size: 2rem;
     border-radius: 50%;
     position: relative;
     width: 50px;
     height: 50px;
-    box-shadow: var(--neon-box-shadow);
+    -webkit-box-shadow: var(--neon-box-shadow);
+            box-shadow: var(--neon-box-shadow);
     outline: 3px solid var(--bg-color);
   }
   .services .section-services .service-box h3 {
@@ -483,7 +608,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     font-size: 1.5rem;
   }
   .services .section-services .service-box p {
-    margin: 0.5rem 0 1.5rem 0;
+    margin: .5rem 0 1.5rem 0;
     font-weight: 300;
     letter-spacing: 1px;
     color: white;
@@ -491,11 +616,14 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .services .section-services .service-box .service-btn {
     width: auto;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .services .service-box:hover {
-    transform: translateY(-0.7rem);
-    background-color: rgb(97, 95, 95);
+    -webkit-transform: translateY(-0.7rem);
+            transform: translateY(-0.7rem);
+    background-color: #615f5f;
   }
   .skills {
     background-color: var(--bg-color);
@@ -503,6 +631,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .skills .skill-main {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 20rem;
   }
@@ -514,9 +644,15 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     gap: 50px;
   }
   .skills .skill-main .skill-bar .infor {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 0 10px;
   }
   .skills .skill-main .skill-bar .bar {
@@ -529,19 +665,31 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   }
   .skills .skill-main .skill-bar .bar .html {
     width: 60%;
-    animation: html 2s;
+    -webkit-animation: html 2s;
+            animation: html 2s;
   }
   .skills .skill-main .skill-bar .bar .figma {
     width: 70%;
-    animation: figma 3s;
+    -webkit-animation: figma 3s;
+            animation: figma 3s;
   }
   .skills .skill-main .skill-bar .bar .javascript {
     width: 50%;
-    animation: javascript 4s;
+    -webkit-animation: javascript 4s;
+            animation: javascript 4s;
   }
   .skills .skill-main .skill-bar .bar .sass {
     width: 80%;
-    animation: sass 5s;
+    -webkit-animation: sass 5s;
+            animation: sass 5s;
+  }
+  @-webkit-keyframes html {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 60%;
+    }
   }
   @keyframes html {
     0% {
@@ -549,6 +697,14 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     }
     100% {
       width: 60%;
+    }
+  }
+  @-webkit-keyframes sass {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 80%;
     }
   }
   @keyframes sass {
@@ -559,12 +715,28 @@ No media query since this is the default in Bootstrap because it is "mobile firs
       width: 80%;
     }
   }
+  @-webkit-keyframes figma {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 70%;
+    }
+  }
   @keyframes figma {
     0% {
       width: 0%;
     }
     100% {
       width: 70%;
+    }
+  }
+  @-webkit-keyframes javascript {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
     }
   }
   @keyframes javascript {
@@ -582,7 +754,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     left: 0;
     background-color: var(--hover-color);
     border-radius: 25px;
-    box-shadow: var(--neon-box-shadow);
+    -webkit-box-shadow: var(--neon-box-shadow);
+            box-shadow: var(--neon-box-shadow);
   }
   .skills .skill-main h3 {
     margin-bottom: 2.3rem;
@@ -593,20 +766,30 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     width: 30rem;
   }
   .skill-right .professional {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
   .skill-right .professional .box {
     position: relative;
     margin: 10px 0;
-    flex: 1 1 15rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 15rem;
+            flex: 1 1 15rem;
   }
   .skill-right .professional .box .circle {
     width: 100%;
     height: 120px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border: 2px solid white;
   }
   .skill-right .professional .box .circle .points {
@@ -615,18 +798,35 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     background-color: var(--bg-color);
     position: absolute;
     border-radius: 3px;
-    transform: rotate(calc(var(--i) * 120deg)) translateY(-45px);
-    animation: glow 0.04s linear forwards;
-    animation-delay: calc(var(--i) * 0.05s);
+    -webkit-transform: rotate(calc(var(--i)*120deg)) translateY(-45px);
+            transform: rotate(calc(var(--i)*120deg)) translateY(-45px);
+    -webkit-animation: glow 0.04s linear forwards;
+            animation: glow 0.04s linear forwards;
+    -webkit-animation-delay: calc(var(--i)*0.05s);
+            animation-delay: calc(var(--i)*0.05s);
+  }
+  @-webkit-keyframes glow {
+    0% {
+      background-color: var(--bg-color);
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    100% {
+      background-color: var(--hover-color);
+      -webkit-box-shadow: var(--neon-box-shadow);
+              box-shadow: var(--neon-box-shadow);
+    }
   }
   @keyframes glow {
     0% {
       background-color: var(--bg-color);
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
     100% {
       background-color: var(--hover-color);
-      box-shadow: var(--neon-box-shadow);
+      -webkit-box-shadow: var(--neon-box-shadow);
+              box-shadow: var(--neon-box-shadow);
     }
   }
   .skill-right .professional .box .text {
@@ -640,15 +840,194 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     position: absolute;
     top: 40%;
     left: 45%;
-    transform: translate(-50% -50%);
+    -webkit-transform: translate(-50% -50%);
+            transform: translate(-50% -50%);
   }
   .skill-right .professional .box .text .small {
     display: block;
     font-weight: 600;
   }
+  .portfolio h2 {
+    color: var(--text-color);
+  }
+  .portfolio .container .fillter-buttons {
+    text-align: center;
+    margin: 2rem;
+  }
+  .portfolio .container .fillter-buttons .btn {
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  .portfolio .container .fillter-buttons .btn:hover {
+    color: var(--hover-color);
+  }
+  .portfolio .portfolio-gallery {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(370px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+    gap: 2rem;
+  }
+  .portfolio .portfolio-gallery .port-box {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-grid-rows: 1fr auto;
+        grid-template-rows: 1fr auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 2px solid var(--hover-color);
+    -webkit-box-shadow: var(--neon-box-shadow);
+            box-shadow: var(--neon-box-shadow);
+  }
+  .portfolio .portfolio-gallery .port-box .port-image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .portfolio .portfolio-gallery .port-box .port-image img {
+    height: 100%;
+    width: 100%;
+    opacity: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  .portfolio .portfolio-gallery .port-box .port-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    -webkit-transition: .5s;
+    transition: .5s;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(orange));
+    background: linear-gradient(rgba(0, 0, 0, 0.2), orange);
+  }
+  .portfolio .portfolio-gallery .port-box .port-content h3 {
+    color: var(--text-color);
+    font-weight: 600;
+  }
+  .portfolio .portfolio-gallery .port-box .port-content p {
+    color: var(--text-color);
+  }
+  .portfolio .portfolio-gallery .port-box .port-content a {
+    background-color: var(--text-color);
+    border-radius: 50%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--hover-color);
+    outline: 2px solid var(--text-color);
+    color: var(--hover-color);
+  }
+  .portfolio .portfolio-gallery .port-box:hover .port-content {
+    opacity: 1;
+  }
+  .portfolio .portfolio-gallery .port-box:hover .port-image img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  .contact {
+    background-color: var(--second-bg-color);
+    width: 100%;
+  }
+  .contact form {
+    text-align: center;
+    margin: 1rem auto;
+    max-width: 50rem;
+    margin-bottom: 3rem;
+  }
+  .contact form input,
+  .contact form textarea {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin-bottom: .8rem;
+    border: none;
+    border-radius: 5px;
+    padding: .7rem;
+  }
+  .contact form textarea {
+    resize: none;
+  }
+  .contact form .formBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1.5rem 10%;
+  }
+  footer p {
+    color: var(--text-color);
+  }
+  footer a {
+    color: var(--text-color);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: var(--hover-color);
+    padding: .6rem;
+    border-radius: 5px;
+  }
 }
+
 /*
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Custom media queries
 */
-/* Set width to make card deck cards 100% width *//*# sourceMappingURL=style.css.map */
+/* Set width to make card deck cards 100% width */
+/*# sourceMappingURL=style.css.map */
